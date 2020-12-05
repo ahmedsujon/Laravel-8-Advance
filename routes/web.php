@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FluentController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,3 +17,7 @@ Route::get('/update-posts', [ClientController::class, 'update'])->name('posts.up
 Route::get('/delete-post/{id}', [ClientController::class, 'destroy'])->name('posts.deletePost');
 
 Route::get('/fluent-string', [FluentController::class, 'index'])->name('fluent.string');
+
+Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.infoGet');
+Route::get('/session/store', [SessionController::class, 'storeSessionData'])->name('session.storeInfo');
+Route::get('/session/remove', [SessionController::class, 'deleteSessionData'])->name('session.forgetInfo');
